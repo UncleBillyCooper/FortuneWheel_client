@@ -1,0 +1,463 @@
+@font-face {
+    font-family: "MyLuckiestGuy";
+    src: url("/src/fonts/LuckiestGuy-Regular.ttf");
+  }
+  
+  @font-face {
+    font-family: "MyGothemPro";
+    src: url("/src/fonts/gothampro.ttf");
+  }
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body{
+    width: 100dvw;
+    max-width: 375px;
+    height: 100dvh;
+    max-height: 715px;
+    margin: 0 auto;
+    
+}
+
+  
+  .App{
+    
+    width: 100%;
+    height: 100dvh;
+    max-height: 715px;
+    max-width: 375px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0;
+    
+  }
+
+  .popup_container{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: clamp(200px, 100dvw, 375px);;
+    height: clamp(500px, 100dvh, 715px);;
+    
+    position: absolute;
+    
+    top: -80%;
+    left: 0;
+    border: 2px black solid;
+    background: rgba(0, 0, 0, .8);
+    z-index: 6;
+  }
+
+.popup_container__block{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 2px red solid; */
+  min-width: 100%;
+  min-height: 40%;
+}
+
+.popup_container__block>h1{
+  font-size: clamp(20px, calc(5 * (1vw + 1vh)), 70px) !important;
+  /* font-size: 70px !important; */
+}
+
+.popup__result{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 2px red solid; */
+  min-width: 50%;
+}
+
+.popup__result>img{
+  min-width: 40%;
+}
+
+.popup__result>h2{
+  font-size: clamp(20px, calc(5 * (1vw + 1vh)), 60px) !important;
+  /* font-size: 70px !important; */
+}
+
+
+  .popup__btn{
+    font-family: MyLuckiestGuy;
+    color: #FAC269;
+    font-weight: 400;
+    width: 45%;
+    height: max(55px, calc(2 * (1vw + 1vh)));
+    font-size: clamp(25px, calc(1.5 * (1vw + 1vh)), 28px) !important;
+    line-height: 20px;
+    white-space: pre-line;
+    letter-spacing: 1px;
+    
+    background: linear-gradient(45deg, rgb(188, 0, 0), rgb(139, 0, 0));
+    border-radius: 10px !important;
+    height: max(55px, calc(2 * (1vw + 1vh)));
+    
+    border: 3px #FAC269 solid;
+    box-shadow: 0px 5px 0px 0px rgba(138, 0, 0, 1);
+  }
+  
+  .header{
+    background-color: rgba(0, 21, 131, 1);
+    width: 100%;
+    height: 10%;
+    min-height: 77.54px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  .btnGroupe{
+    background: rgba(43, 46, 51, 0.16);
+    border-radius: 5px;
+    margin: 0px 10px 5px 0px;
+  }
+
+  .content-container{
+    /* border: 2px black solid; */
+    width: 100%;
+    
+    height: 90%;
+    background: radial-gradient(circle, rgba(117,189,255,1) 0%, rgba(2,0,101,.7) 100%);
+    font-family: MyLuckiestGuy;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .content-container h1{
+    font-size: clamp(10px, calc(3.8 * (1vw + 1vh)), 40px);
+    /* font-size: clamp(20px, 2em, 40px); */
+    margin: 0;
+    font-weight: 400;
+    width: 100%;
+    text-align: center;
+  }
+
+  .roulet{
+    width: 100%;
+    height: 36.5%;
+    /* border: 2px black solid; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .roulet__box{
+   
+    width: clamp(100px, calc(20 * (1vw + 1vh)), 200px);
+    background: linear-gradient(90deg, rgba(52, 150, 223, .5), rgba(1, 108, 185, .5));
+    height: clamp(100px, calc(20 * (1vw + 1vh)), 200px);
+    box-shadow: 1px 7px 4px 0px rgba(16, 17, 19, 0.2) inset;
+    padding: 0;
+    border-radius: 20px;
+  
+    position: relative;
+  }
+
+  .roulet__wheel{
+    
+    width: 120%;
+    height: 120%;
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    bottom: 10%;
+    right: 10%;
+    z-index: 1;
+    
+     
+  }
+
+  /* .roulet__wheel:hover{
+    animation: RotateS8 2s cubic-bezier(.24,.31,.57,.87) 1 normal forwards;
+  } */
+
+      /* transform: rotate(340deg);  *//*Джекпот s1*/
+      /* transform: rotate(385deg); *//*750 s2*/
+      /* transform: rotate(430deg); *//*200 s3*/
+      /* transform: rotate(475deg); *//*150 s4*/
+      /* transform: rotate(520deg); *//*100 s5*/
+      /* transform: rotate(565deg); *//*10 s6*/
+      /* transform: rotate(610deg); *//*400 s7*/
+      /* transform: rotate(655deg); *//*250 s8*/
+
+  .s1{
+    animation: RotateS1 2.5s ease-out 1 normal forwards;
+  }
+
+  .s2{
+    animation: RotateS2 2.5s ease-out 1 normal forwards;
+  }
+
+  .s3{
+    animation: RotateS3 2.5s ease-out 1 normal forwards;
+  }
+
+  .s4{
+    animation: RotateS4 2.5s ease-out 1 normal forwards;
+  }
+
+  .s5{
+    animation: RotateS5 2.5s ease-out 1 normal forwards;
+  }
+
+  .s6{
+    animation: RotateS6 2.5s ease-out 1 normal forwards;
+  }
+
+  .s7{
+    animation: RotateS7 2.5s ease-out 1 normal forwards;
+  }
+
+  .s8{
+    animation: RotateS8 2.5s ease-out 1 normal forwards;
+  }
+  
+  @keyframes RotateS1 {
+    0%{
+      transform: rotate(0deg);
+      
+    }
+  
+    100%{
+      transform: rotate(6820deg); 
+      
+    }
+  }
+
+  @keyframes RotateS2 {
+    0%{
+      transform: rotate(0deg);
+      
+    }
+  
+    100%{
+      
+      transform: rotate(7580deg);
+      
+    }
+  }
+
+  @keyframes RotateS3 {
+    0%{
+      transform: rotate(0deg);
+      
+    }
+  
+    100%{
+      
+      transform: rotate(8710deg);
+      
+    }
+  }
+
+  @keyframes RotateS4 {
+    0%{
+      transform: rotate(0deg);
+      
+    }
+  
+    100%{
+      
+      transform: rotate(9480deg);
+      
+    }
+  }
+
+  @keyframes RotateS5 {
+    0%{
+      transform: rotate(0deg);
+      
+    }
+  
+    100%{
+      
+      transform: rotate(10240deg);
+      
+    }
+  }
+  
+  @keyframes RotateS6 {
+    0%{
+      transform: rotate(0deg);
+      
+    }
+  
+    100%{
+      
+      transform: rotate(11360deg);
+      
+    }
+  }
+
+  @keyframes RotateS7 {
+    0%{
+      transform: rotate(0deg);
+      
+    }
+  
+    100%{
+      
+      transform: rotate(12130deg);
+      
+    }
+  }
+
+  @keyframes RotateS8 {
+    0%{
+      transform: rotate(0deg);
+      
+    }
+  
+    100%{
+      
+      transform: rotate(13250deg);
+    }
+  }
+
+  .roulet__pointer{
+    position: absolute;
+    
+    left: 45%;
+    z-index: 2;
+  }
+
+  .balance{
+    /* border: 2px black solid; */
+    width: 40%;
+    min-height: 100%;
+    color: white;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .balance div{
+    padding: 5px 0px 0px 0px;
+    color: #FAC269;
+    border: 3px #FAC269 solid;
+    border-radius: 10px;
+    width: 95%;
+    height: clamp(20px, calc(5 * (1vw + 1vh)), 52px);
+    text-align: center;
+    line-height: 20px;
+    font-size: clamp(10px, calc(1.6 * (1vw + 1vh)), 24px);
+    box-shadow: -5px -4px 6px 0px rgba(64, 0, 0, 0.2);
+    background: linear-gradient(45deg, rgb(88, 141, 216), rgb(50, 79, 165));
+    font-weight: 400;
+  }
+
+  .balance__btn{
+    font-family: MyLuckiestGuy;
+    color: #FAC269;
+    font-weight: 400;
+    width: 95%;
+    height: clamp(20px, calc(5 * (1vw + 1vh)), 52px) !important;
+    
+    font-size: clamp(10px, calc(1.6 * (1vw + 1vh)), 24px) !important;
+    line-height: 20px;
+    white-space: pre-line;
+    letter-spacing: 1px;
+    
+    background: linear-gradient(45deg, rgb(188, 0, 0), rgb(139, 0, 0));
+    border-radius: 10px !important;
+    height: max(55px, calc(2 * (1vw + 1vh)));
+    
+    border: 3px #FAC269 solid;
+    box-shadow: 0px 5px 0px 0px rgba(138, 0, 0, 1);
+  }
+
+  .winner_list{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 50%;
+    /* border: 2px black solid; */
+    width: 100%;
+    border-radius: 15px;
+    background: linear-gradient(90deg, rgba(52, 150, 223, .5), rgba(1, 108, 185, .5));
+    box-shadow: 1px 6px 4px 0px rgba(47, 55, 84, 0.2) inset;
+    color: white;
+  }
+
+  .winner_list h2{
+    font-size: clamp(10px, calc(3.8 * (1vw + 1vh)), 35px);
+    margin: 0;
+    font-weight: 400;
+    width: 100%;
+    text-align: center;
+  }
+
+  .cards_list{
+    width: 95%;
+    height: 80%;
+    /* border: 2px red solid; */
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .cards_list::-webkit-scrollbar {
+    width: 0;
+  }
+  
+  .winner_card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: clamp(24px, calc(3vw + 3vh), 50px);
+    padding: 0px 5px 0px 5px !important;
+    /* border: 2px black solid; */
+    background: linear-gradient(180deg, rgb(98, 181, 240), rgb(4, 110, 186)) !important;
+    color: white;
+    box-shadow: 1px 3px 3px 0px rgba(34, 60, 80, 0.2);
+    font-family: MyGothemPro;
+    
+  }
+
+  .ava{
+    max-width: 45px;
+    max-height: 45px;
+    width: 17%;
+    height: 95%;
+    border-radius: 50%;
+  }
+
+  .winner_card__name{
+    width: 60%;
+    text-align: center;
+    font-size: clamp(0.6rem, calc(1dvw + 1dvh) ,1rem);
+  }
+
+  .winner_card p{
+    /* width: 60%;
+    text-align: center; */
+    font-size: calc(1vw + 1vh);
+  }
+
+.coins{
+  width: 10%;
+}
